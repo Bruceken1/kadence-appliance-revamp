@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,6 @@
 
 @layer base {
   :root {
-    /* Brand blues - dominant */
     --primary: 197 100% 42%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 195 100% 43%;
@@ -14,25 +13,21 @@
     --primary-pale: 196 78% 85%;
     --primary-wash: 197 77% 95%;
 
-    /* Brand greens - action/safety */
     --accent: 168 100% 34%;
     --accent-foreground: 0 0% 100%;
     --accent-light: 170 100% 37%;
     --accent-lighter: 168 55% 62%;
     --accent-pale: 168 56% 85%;
 
-    /* Warm orange - urgency CTAs */
     --warning: 27 87% 56%;
     --warning-foreground: 0 0% 100%;
     --warning-light: 30 87% 61%;
 
-    /* Purple - depth/premium */
     --purple: 267 40% 44%;
     --purple-light: 267 30% 55%;
     --purple-pale: 267 32% 85%;
 
-    /* Base tones */
-    --background: 210 20% 98%;
+    --background: 220 20% 97%;
     --foreground: 220 30% 10%;
     --card: 0 0% 100%;
     --card-foreground: 220 30% 10%;
@@ -52,9 +47,9 @@
     --ring: 197 100% 42%;
     --radius: 0.375rem;
 
-    /* Dark surfaces */
     --navy: 220 40% 8%;
     --navy-light: 220 30% 14%;
+    --navy-mid: 220 28% 18%;
 
     --sidebar-background: 220 40% 8%;
     --sidebar-foreground: 210 20% 90%;
@@ -74,10 +69,16 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
   }
 }
 
@@ -87,11 +88,101 @@
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
   }
 
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--warning)), hsl(var(--primary)));
+  }
+
   .bg-navy {
     background-color: hsl(var(--navy));
   }
 
   .bg-navy-light {
     background-color: hsl(var(--navy-light));
+  }
+
+  .bg-navy-mid {
+    background-color: hsl(var(--navy-mid));
+  }
+
+  /* Cinematic overlays */
+  .overlay-dramatic {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--navy) / 0.95) 0%,
+      hsl(var(--navy) / 0.7) 50%,
+      hsl(var(--navy) / 0.5) 100%
+    );
+  }
+
+  .overlay-bottom {
+    background: linear-gradient(
+      to top,
+      hsl(var(--navy)) 0%,
+      hsl(var(--navy) / 0.8) 30%,
+      transparent 100%
+    );
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4);
+  }
+
+  .glow-warning {
+    box-shadow: 0 0 30px -5px hsl(var(--warning) / 0.5);
+  }
+
+  /* Line accents */
+  .line-accent {
+    position: relative;
+  }
+  .line-accent::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 2px;
+  }
+
+  /* Counter animation */
+  @keyframes count-up-scale {
+    from { opacity: 0; transform: scale(0.5) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .animate-count {
+    animation: count-up-scale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Scan line effect for tech feel */
+  .scanline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+    animation: scanline 4s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% { top: 0; }
+    100% { top: 100%; }
+  }
+
+  /* Pulse ring for urgency */
+  @keyframes pulse-ring {
+    0% { transform: scale(0.9); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+    100% { transform: scale(0.9); opacity: 1; }
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 2s ease-in-out infinite;
   }
 }

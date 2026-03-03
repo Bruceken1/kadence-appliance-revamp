@@ -63,6 +63,7 @@ export default {
         navy: {
           DEFAULT: "hsl(var(--navy))",
           light: "hsl(var(--navy-light))",
+          mid: "hsl(var(--navy-mid))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
