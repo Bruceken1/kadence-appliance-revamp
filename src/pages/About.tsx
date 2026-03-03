@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield, Target, Users, Award, CheckCircle } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
-import aboutHero from "@/assets/about-hero.jpg";
+import tornadoImg from "@/assets/tornado-debris.jpg";
+import paulImg from "@/assets/paul-flavell.png";
 
 const milestones = [
   { year: "2008", title: "Founded", desc: "Established by former emergency management directors with a mission to close preparedness gaps in critical industries." },
@@ -24,7 +25,7 @@ const About = () => (
     {/* Hero */}
     <section className="relative py-32 md:py-40 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={aboutHero} alt="Emergency response team" className="w-full h-full object-cover" />
+        <img src={tornadoImg} alt="Disaster response and recovery" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/70" />
       </div>
       <div className="relative container mx-auto px-4">
@@ -34,26 +35,33 @@ const About = () => (
             Calm Leadership in Chaos
           </h1>
           <p className="text-white/70 text-lg leading-relaxed">
-            For over 15 years, Apex Readiness has partnered with the world's most critical industries to build emergency preparedness programs that save lives, protect assets, and ensure operational continuity.
+            For over 15 years, Sandhurst has partnered with the world's most critical industries to build emergency preparedness programs that save lives, protect assets, and ensure operational continuity.
           </p>
         </motion.div>
       </div>
     </section>
 
-    {/* Mission */}
+    {/* Leadership */}
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <SectionReveal>
             <div>
-              <span className="text-primary text-sm font-semibold uppercase tracking-[0.15em]">Our Mission</span>
+              <span className="text-primary text-sm font-semibold uppercase tracking-[0.15em]">Leadership</span>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">
-                Making Organizations Resilient Before Disaster Strikes
+                Led by Experience, Driven by Purpose
               </h2>
+              <div className="flex items-start gap-6 mb-8">
+                <img src={paulImg} alt="Paul Flavell - Founder" className="w-28 h-28 rounded-lg object-cover shrink-0 border-2 border-primary/20" />
+                <div>
+                  <h3 className="font-heading text-xl font-semibold text-foreground">Paul Flavell</h3>
+                  <p className="text-primary text-sm font-medium mb-2">Founder & Principal Consultant</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    With decades of frontline emergency management experience, Paul founded Sandhurst to bridge the gap between theoretical preparedness and real-world resilience.
+                  </p>
+                </div>
+              </div>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                We exist because preparation saves lives. Our team of former emergency management directors, military strategists, and crisis response specialists bring decades of field experience to every engagement.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
                 We don't just write plans — we build organizational muscle memory. Through rigorous training, realistic simulations, and strategic consulting, we ensure your team knows exactly what to do when the unthinkable happens.
               </p>
               <div className="flex flex-col gap-3">
@@ -119,7 +127,7 @@ const About = () => (
       <div className="container mx-auto px-4">
         <SectionReveal>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Ready to Partner With Us?</h2>
-          <p className="text-white/70 max-w-lg mx-auto mb-8">Join 250+ organizations that trust Apex Readiness to protect what matters most.</p>
+          <p className="text-white/70 max-w-lg mx-auto mb-8">Join 250+ organizations that trust Sandhurst to protect what matters most.</p>
           <Link to="/contact" className="inline-block bg-warning hover:bg-warning-light text-warning-foreground px-8 py-4 rounded font-semibold transition-all hover:scale-105">
             Start the Conversation
           </Link>

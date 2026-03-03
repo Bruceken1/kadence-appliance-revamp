@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Droplets, Plane, Building, Shield, Heart, Zap, GraduationCap, Landmark, ChevronRight } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
+import floodImg from "@/assets/flood-houston.jpg";
 
 const industries = [
   {
@@ -56,9 +57,13 @@ const industries = [
 
 const Industries = () => (
   <main>
-    {/* Hero */}
-    <section className="bg-navy py-32 md:py-40">
-      <div className="container mx-auto px-4">
+    {/* Hero with flood image */}
+    <section className="relative py-32 md:py-40 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={floodImg} alt="Flood emergency response" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/70" />
+      </div>
+      <div className="relative container mx-auto px-4">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
           <span className="text-accent text-sm font-semibold uppercase tracking-[0.2em] mb-4 block">Industries We Serve</span>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6">

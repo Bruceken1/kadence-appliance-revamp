@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield, Target, Users, Clock, CheckCircle, ChevronRight, Award, Zap, BarChart3, AlertTriangle, Flame, Building2 } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
-import heroBg from "@/assets/hero-bg.jpg";
+import wildfireImg from "@/assets/wildfire.jpg";
+import oilFireImg from "@/assets/oil-fire.jpg";
+import floodImg from "@/assets/flood-houston.jpg";
+import tornadoImg from "@/assets/tornado-debris.jpg";
 
 const stats = [
   { value: "100+", label: "Simulations Conducted", icon: Target },
@@ -26,7 +29,7 @@ const sectors = [
 ];
 
 const testimonials = [
-  { quote: "Apex Readiness transformed our emergency preparedness program. Their simulation exercises exposed critical gaps we never knew existed.", author: "Director of Safety", org: "Major Pipeline Operator" },
+  { quote: "Sandhurst transformed our emergency preparedness program. Their simulation exercises exposed critical gaps we never knew existed.", author: "Director of Safety", org: "Major Pipeline Operator" },
   { quote: "When a real incident occurred, our team executed flawlessly — exactly as trained. The confidence they built in our staff was invaluable.", author: "VP Operations", org: "Regional Airline" },
   { quote: "Their regulatory compliance expertise saved us months of work and potential penalties. Professional, thorough, and always available.", author: "Chief Risk Officer", org: "Federal Agency" },
 ];
@@ -36,7 +39,7 @@ const Homepage = () => (
     {/* Hero */}
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Emergency command center" className="w-full h-full object-cover" loading="eager" />
+        <img src={wildfireImg} alt="Emergency wildfire response" className="w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/60" />
       </div>
       <div className="relative container mx-auto px-4 pt-28 pb-20">
@@ -80,7 +83,6 @@ const Homepage = () => (
           </motion.div>
         </div>
       </div>
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
@@ -143,8 +145,39 @@ const Homepage = () => (
       </div>
     </section>
 
-    {/* Industries */}
+    {/* Real-World Impact imagery strip */}
     <section className="py-20 md:py-28 bg-navy">
+      <div className="container mx-auto px-4">
+        <SectionReveal>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-accent text-sm font-semibold uppercase tracking-[0.15em]">Real-World Impact</span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+              When Preparedness Meets Reality
+            </h2>
+            <p className="text-white/50">From wildfires to floods, industrial disasters to tornado recovery — our expertise spans every crisis scenario.</p>
+          </div>
+        </SectionReveal>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { img: wildfireImg, label: "Wildfire Response" },
+            { img: oilFireImg, label: "Industrial Incidents" },
+            { img: floodImg, label: "Flood Recovery" },
+            { img: tornadoImg, label: "Disaster Cleanup" },
+          ].map((item, i) => (
+            <SectionReveal key={item.label} delay={i * 0.1}>
+              <div className="relative group rounded-lg overflow-hidden aspect-[4/3]">
+                <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
+                <span className="absolute bottom-4 left-4 text-white font-semibold text-sm">{item.label}</span>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Industries */}
+    <section className="py-20 md:py-28 bg-navy-light">
       <div className="container mx-auto px-4">
         <SectionReveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -217,7 +250,7 @@ const Homepage = () => (
             Build Unbreakable Resilience
           </h2>
           <p className="text-white/70 max-w-xl mx-auto mb-8">
-            Don't wait for a crisis to expose your vulnerabilities. Partner with Apex Readiness to build a preparedness program that stands up to the real world.
+            Don't wait for a crisis to expose your vulnerabilities. Partner with Sandhurst to build a preparedness program that stands up to the real world.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

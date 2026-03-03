@@ -18,16 +18,14 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <Shield className="w-8 h-8 text-primary transition-transform group-hover:scale-110" />
           <div className="flex flex-col leading-tight">
-            <span className="text-white font-heading text-lg font-bold tracking-tight">Apex Readiness</span>
+            <span className="text-white font-heading text-lg font-bold tracking-tight">Sandhurst</span>
             <span className="text-primary-lighter text-[10px] uppercase tracking-[0.2em]">Emergency Management</span>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
@@ -44,7 +42,6 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <a href="tel:+18005551234" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
             <Phone className="w-4 h-4" />
@@ -58,7 +55,6 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className="lg:hidden text-white p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -68,7 +64,6 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
