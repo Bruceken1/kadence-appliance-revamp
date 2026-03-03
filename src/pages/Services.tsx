@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BarChart3, Target, Users, AlertTriangle, CheckCircle, Flame, ChevronRight, ArrowRight } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
-import servicesHero from "@/assets/services-hero.jpg";
+import oilFireImg from "@/assets/oil-fire.jpg";
 
 const services = [
   {
@@ -45,10 +45,9 @@ const services = [
 
 const Services = () => (
   <main>
-    {/* Hero */}
     <section className="relative py-32 md:py-40 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={servicesHero} alt="Industrial emergency response" className="w-full h-full object-cover" />
+        <img src={oilFireImg} alt="Industrial emergency response" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/70" />
       </div>
       <div className="relative container mx-auto px-4">
@@ -64,7 +63,6 @@ const Services = () => (
       </div>
     </section>
 
-    {/* Services Detail */}
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         <div className="space-y-12">
@@ -105,7 +103,6 @@ const Services = () => (
       </div>
     </section>
 
-    {/* CTA */}
     <section className="py-20 bg-navy text-center">
       <div className="container mx-auto px-4">
         <SectionReveal>
